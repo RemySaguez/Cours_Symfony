@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class PhotoController extends AbstractController
 {
-    #[Route(path: '/upload')]
+    #[Route(path: '/upload' , name: 'picture_upload')]
     public function upload(): Response
     {
         return $this->render('other/upload.html.twig');
