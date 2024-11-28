@@ -60,7 +60,7 @@
     <script>
         const choosePlaylistSelect = document.getElementById('choosePlaylistSelect');
         choosePlaylistSelect.addEventListener('change', function() {
-            window.location.href = "{{ path('show_my_list') }}?playlist=" + this.value;
+            window.location.href = "{{ path('lists') }}?playlist=" + this.value;
         });
     </script>
 {% endblock %}

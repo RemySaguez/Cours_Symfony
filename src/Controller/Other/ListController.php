@@ -22,7 +22,6 @@ class ListController extends AbstractController
     ): Response
     {
         $playlistId = $request->query->get('playlist');
-        $playlist = $playlistRepository->find($playlistId);
 
         if ($playlistId) {
             $playlist = $playlistRepository->find($playlistId);
