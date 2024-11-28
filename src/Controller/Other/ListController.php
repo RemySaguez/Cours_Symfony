@@ -24,6 +24,12 @@ class ListController extends AbstractController
         $playlistId = $request->query->get('playlist');
         $playlist = $playlistRepository->find($playlistId);
 
+        if ($playlistId) {
+            $playlist = $playlistRepository->find($playlistId);
+        } else {
+            $playlist = null;
+        }
+
         $playlits = $playlistRepository->findAll();
         $subscribedPlaylists = $playlistSubscriptionRepository->findAll();
 

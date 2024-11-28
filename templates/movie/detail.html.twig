@@ -98,7 +98,7 @@
                     <span class="flex bg-black/10 m-0.5 px-1 py-0.5 rounded"><b class="mr-2">Sous-titre</b> Français, Anglais</span>
                     <span class="flex bg-black/10 m-0.5 px-1 py-0.5 rounded"><b class="mr-2">Catégories</b>
                         {% for category in movie.categories %}
-                            <a href="{{ path('show_category', {id: category.id}) }}" class="hover:text-red-600 underline decoration-red-400 decoration-2">{{ category.nom }}</a>
+                            <a href="{{ path('category', {id: category.id}) }}" class="hover:text-red-600 underline decoration-red-400 decoration-2">{{ category.nom }}</a>
                             {% if not loop.last %},&nbsp;{% endif %}
                         {% endfor %}
 
