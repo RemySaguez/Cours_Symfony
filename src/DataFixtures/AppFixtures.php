@@ -240,7 +240,6 @@ class AppFixtures extends Fixture
                 $comment = new Comment();
                 $comment->setPublisher($users[array_rand($users)]);
                 $comment->setContent("Commentaire $i");
-//                $comment->set(new DateTimeImmutable());
                 $comment->setStatus(random_int(0, 1) === 1 ? CommentStatusEnum::VALIDATED : CommentStatusEnum::WAITING);
                 $comment->setMedia($media);
 
@@ -249,7 +248,6 @@ class AppFixtures extends Fixture
                     $parentComment = new Comment();
                     $parentComment->setPublisher($users[array_rand($users)]);
                     $parentComment->setContent("Commentaire parent");
-//                    $parentComment->setCreatedAt(new \DateTimeImmutable());
                     $parentComment->setStatus(random_int(0, 1) === 1 ? CommentStatusEnum::VALIDATED : CommentStatusEnum::WAITING);
                     $parentComment->setMedia($media);
                     $comment->setParentComment($parentComment);
@@ -261,7 +259,6 @@ class AppFixtures extends Fixture
         }
     }
 
-    // link methods
 
     protected function linkMediaToCategories(array $medias, array $categories): void
     {

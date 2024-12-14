@@ -3,29 +3,35 @@
 declare(strict_types=1);
 
 namespace App\Controller\Other;
-
-use App\Entity\PlaylistSubscription;
-use App\Repository\PlaylistRepository;
-use App\Repository\PlaylistSubscriptionRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Repository\PlaylistRepository;
 use Symfony\Component\Routing\Attribute\Route;
+use App\Entity\PlaylistSubscription;
+
+use App\Repository\PlaylistSubscriptionRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
 
 class ListController extends AbstractController
+
 {
     #[Route(path: '/lists', name: 'lists')]
     public function show(
         PlaylistRepository $playlistRepository,
-        PlaylistSubscriptionRepository $playlistSubscriptionRepository,
+        PlaylistSubscriptionRepository $playlistSubscriptionRepository ,
         Request $request,
     ): Response
+
     {
         $playlistId = $request->query->get('playlist');
 
-        if ($playlistId) {
+        if ($playlistId) 
+        {
             $playlist = $playlistRepository->find($playlistId);
-        } else {
+        } 
+        else 
+        {
             $playlist = null;
         }
 
@@ -37,5 +43,6 @@ class ListController extends AbstractController
             'subscribedPlaylists' => $subscribedPlaylists,
             'activePlaylist' => $playlist,
         ]);
+
     }
 }

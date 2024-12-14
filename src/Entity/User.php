@@ -282,7 +282,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function removeWatchHistory(WatchHistory $watchHistory): static
     {
         if ($this->watchHistories->removeElement($watchHistory)) {
-            // set the owning side to null (unless already changed)
             if ($watchHistory->getWatcher() === $this) {
                 $watchHistory->setWatcher(null);
             }
