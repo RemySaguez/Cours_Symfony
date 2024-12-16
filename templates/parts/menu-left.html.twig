@@ -59,6 +59,11 @@
         </a>
 
         <div class="mt-8 text-gray-400/70  font-medium uppercase">General</div>
+        {% if app.user %}
+            <a href="{{ path('app_logout') }}">Déconnexion</a>
+        {% else %}
+            <a href="{{ path('app_login') }}">Connexion</a>
+        {% endif %}
 
         {% if app.user %}
             <a class="flex items-center space-x-2 py-1  group hover:border-r-4 hover:border-r-red-600 hover:font-semibold" href="{{ path('app_logout') }}">

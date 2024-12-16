@@ -42,10 +42,9 @@ class AppFixtures extends Fixture
     public const MAX_COMMENTS_PER_MEDIA = 10;
     public const MAX_PLAYLIST_SUBSCRIPTION_PER_USERS = 3;
 
-    public function __construct(
-        protected UserPasswordHasherInterface $passwordHasher
-    )
+    public function __construct(UserPasswordHasherInterface $passwordHasher)
     {
+        $this->passwordHasher = $passwordHasher;
     }
 
     public function load(ObjectManager $manager): void
@@ -72,6 +71,13 @@ class AppFixtures extends Fixture
 
         $this->addUserPlaylistSubscriptions($manager, $users, $playlists);
 
+        $manager->flush();
+
+        $user = new User();
+        $hashedPassword = $this->passwordHasher->hashPassword($user, 'password');
+        $user->setPassword($hashedPassword);
+        $user->setRoles(['ROLE_USER']);
+        $manager->persist($user);
         $manager->flush();
     }
 
