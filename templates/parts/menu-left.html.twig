@@ -48,6 +48,7 @@
             </svg>
             <span>Mes abonnements</span>
         </a>
+        {% if is_granted('ROLE_ADMIN') %}
         <a class=" flex items-center space-x-2 py-1  group hover:border-r-4 hover:border-r-red-600 hover:font-semibold {% if app.current_route == 'login' %}font-semibold border-r-4 border-r-red-600 pr-20{% endif %}" href="{{ path('login') }}">
             <svg class="h-5 w-5 group-hover:fill-red-600 {% if app.current_route == 'admin' %}fill-red-600{% endif %}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <g>
@@ -57,7 +58,7 @@
             </svg>
             <span>Administration</span>
         </a>
-
+        {% endif %}
         <div class="mt-8 text-gray-400/70  font-medium uppercase">General</div>
         {% if app.user %}
             <a href="{{ path('app_logout') }}">Déconnexion</a>

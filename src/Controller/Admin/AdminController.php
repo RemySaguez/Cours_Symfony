@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
 
+#[IsGranted('ROLE_ADMIN')]
 #[Route(path: '/admin')]
 class AdminController extends AbstractController
 

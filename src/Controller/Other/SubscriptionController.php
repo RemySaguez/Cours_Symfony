@@ -11,7 +11,8 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class SubscriptionController extends AbstractController
 
-{
+{   
+    #[IsGranted('ROLE_USER')]
     #[Route(path: '/subscriptions', name: 'subscriptions')]
     public function show(
         SubscriptionRepository $subscriptionRepository

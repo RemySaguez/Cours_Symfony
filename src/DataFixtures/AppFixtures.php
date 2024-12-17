@@ -143,10 +143,7 @@ class AppFixtures extends Fixture
             $user->setEmail(email: "test_$i@example.com");
             $user->setUsername(username: "test_$i");
 
-            $hashedPassword = $this->passwordHasher->hashPassword(
-                $user,
-                'coucou'
-            );
+            $hashedPassword = $this->passwordHasher->hashPassword($user, 'coucou');
 
             $user->setPassword(password: $hashedPassword);
             $user->setRoles(['ROLE_USER']);

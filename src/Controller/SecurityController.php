@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class SecurityController extends AbstractController
 {
-    #[Route(path: '/login', name: 'app_login')]
+    #[Route(path: '/login_', name: 'app_login')]
 
     public function login(AuthenticationUtils $authenticationUtils):  Response
 
@@ -26,7 +26,7 @@ class SecurityController extends AbstractController
     }
 
 
-    #[Route(path: '/logout', name: 'app_logout')]
+    #[Route(path: '/logout_', name: 'app_logout')]
     public function logout(): void
     
     {

@@ -16,6 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ListController extends AbstractController
 
 {
+    #[IsGranted('ROLE_USER')]
     #[Route(path: '/lists', name: 'lists')]
     public function show(
         PlaylistRepository $playlistRepository,
